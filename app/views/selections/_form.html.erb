@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag 'selection', :media => "all" %>
+<%= form_with(model: selection) do |form| %>
+  <% if selection.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(selection.errors.count, "error") %> prohibited this selection from being saved:</h2>
+
+      <ul>
+        <% selection.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="form">
+    <tr>
+      <th><%= form.label :"企業名", style: "display: block" %></th>
+      <td><%= form.text_field :company_name %></td>
+    </tr>
+
+    <tr>
+      <th><%= form.label :"選考状況", style: "display: block" %></th>
+      <td><%= form.number_field :status %></td>
+    </tr>
+
+    <tr>
+      <th><%= form.label :"ES締め切り", style: "display: block" %></th>
+      <td><%= form.date_field :es_deadline %></td>
+    </tr>
+
+    <tr>
+      <th><%= form.label :"インターン/本選考", style: "display: block" %></th>
+      <td><%= form.text_field :is_intern %></td>
+    </tr>
+
+    <tr>
+      <th><%= form.label :"次の予定", style: "display: block" %></th>
+      <td><%= form.text_field :next_plan %></td>
+    </tr>
+
+    <tr>
+      <th><%= form.label :"次の予定の日時", style: "display: block" %></th>
+      <td><%= form.date_field :plan_date %></td>
+    </tr>
+
+    <tr>
+      <th><%= form.label :"メモ", style: "display: block" %></th>
+      <td><%= form.text_field :note %></td>
+    </tr>
+  </table>
+  <div class="submit">
+    <%= form.submit%>
+  </div>
+<% end %>

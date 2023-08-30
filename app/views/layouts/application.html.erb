@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobHunting</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <ul class="topnav">
+      <li><%= link_to "ホーム", root_path %></li>
+      <li><%= link_to "新規企業登録", new_company_path %></li>
+      <li><%= link_to "新規選考情報登録", new_selection_path %></li>
+      <li class="right"><a href="#about">About</a></li>
+    </ul>
+    <%= yield %>
+  </body>
+</html>

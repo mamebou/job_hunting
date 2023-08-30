@@ -1,0 +1,35 @@
+
+<%= stylesheet_link_tag 'home', :media => "all" %>
+<table>
+  <tr>
+    <th>業種</th>
+    <th>会社名</th>
+    <th>志望度</th>
+    <th>マイページ</th>
+    <th></th>
+    <th>ステータス</th>
+    <th>ES締め切り</th>
+    <th>インターン/本選考</th>
+    <th>次の予定</th>
+    <th>次の予定の日時</th>
+    <th>メモ</th>
+    <th></th>
+  </tr> 
+  <% @companies.each do |company| %>
+    <tr>
+      <td><%= company.category %>
+      <td><%= company.company_name %>
+      <td><%= company.aspiration %>
+      <td><a href=<%= company.mypage_url %> target="_blank"><%= company.company_name%>マイページへ</a>
+      <td><%= link_to "企業情報編集", edit_company_path(company.id) %></td>
+      <% if company.selection.present? %>
+        <td><%= company.selection.status %>
+        <td><%= company.selection.es_deadline %>
+        <td><%= company.selection.is_intern %>
+        <td><%= company.selection.next_plan %>
+        <td><%= company.selection.plan_date %>
+        <td><%= company.selection.note %>
+        <td><%= link_to "選考情報編集", edit_selection_path(company.selection.id) %></td>
+      <% end %>
+    </tr>
+  <% end %>
