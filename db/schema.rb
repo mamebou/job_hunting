@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_26_170448) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_163935) do
   create_table "companies", force: :cascade do |t|
     t.string "category"
     t.string "company_name"
     t.integer "aspiration"
     t.string "mypage_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

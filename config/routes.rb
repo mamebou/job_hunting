@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :plans
   get 'home/top'
+  get '/list', to: 'home#list'
   resources :selections
   resources :companies
   root to: 'home#top'
