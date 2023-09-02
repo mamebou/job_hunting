@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def top
-    @plan=Plan.all
+    @plans=Plan.all
   end
 
   def list

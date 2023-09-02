@@ -1,9 +1,8 @@
-<%= month_calendar plans: @plan do |date, plans| %>
-  <%= date.strftime("%d") %>
-
-  <% plans.each do |plan| %>
+<%= month_calendar events: @plans do |date, events| %>
+  <%= date.day %>
+  <% events.each do |event| %>
     <div>
-      <%= plan.name %>
+      <%= event.title %>
     </div>
   <% end %>
 <% end %>
